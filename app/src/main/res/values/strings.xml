@@ -14,7 +14,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_welcome">Welcome</string>
     <string name="game_loss">Computer wins!</string>
-    <string name="title_draw">Draw</string>
+    <string name="game_draw">Draw</string>
     <string name="game_win">You win!</string>
     <string name="title_instructions">Instructions: select rock, paper or scissors to play.</string>
     <string name="player_computer">Computer</string>

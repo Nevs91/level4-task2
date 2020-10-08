@@ -4,10 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.example.madlevel4task2.converters.Converters
 import com.example.madlevel4task2.entities.MatchResult
 import com.example.madlevel4task2.interfaces.MatchResultsDao
 
 @Database(entities = [MatchResult::class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class GameResultListRoomDatabase : RoomDatabase() {
 
     abstract fun matchResultsDao(): MatchResultsDao
