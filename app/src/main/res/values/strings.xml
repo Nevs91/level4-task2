@@ -22,4 +22,7 @@
     <string name="game_versus">V.S.</string>
     <string name="title_statistics">Your all time statistics</string>
     <string name="title_statistics_numbers">Win: %d Draw: %d Lose: %d</string>
+    <string name="rock">Rock</string>
+    <string name="paper">Paper</string>
+    <string name="scissor">Scissor</string>
 </resources>
