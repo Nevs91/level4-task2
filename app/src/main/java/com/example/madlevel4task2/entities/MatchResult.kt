@@ -26,7 +26,7 @@ data class MatchResult(
     var outcome: MatchOutcome,
 
     @ColumnInfo(name = "matchDate")
-    private val matchDate: Date?,
+    val date: Date?,
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")

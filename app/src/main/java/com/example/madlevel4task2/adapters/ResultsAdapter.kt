@@ -5,12 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.madlevel4task2.R
+import com.example.madlevel4task2.entities.MatchResult
+import kotlinx.android.synthetic.main.item_result.view.*
 
 class ResultsAdapter(private val matchResult: List<MatchResult>) : RecyclerView.Adapter<ResultsAdapter.ViewHolder>(){
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun databind(matchResult: MatchResult) {
-
+            itemView.tvResult.text = matchResult.outcome.name
+            itemView.tvDate.text = matchResult.date.toString()
         }
     }
 
