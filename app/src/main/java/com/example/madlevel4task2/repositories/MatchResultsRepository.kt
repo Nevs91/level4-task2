@@ -2,6 +2,8 @@ package com.example.madlevel4task2.repositories
 
 import android.content.Context
 import com.example.madlevel4task2.database.GameResultListRoomDatabase
+import com.example.madlevel4task2.entities.MatchOption
+import com.example.madlevel4task2.entities.MatchOutcome
 import com.example.madlevel4task2.entities.MatchResult
 import com.example.madlevel4task2.interfaces.MatchResultsDao
 
@@ -28,5 +30,17 @@ class MatchResultsRepository(context: Context) {
 
     suspend fun deleteAllMatchResults() {
         matchResultsDao.deleteAllMatchResults()
+    }
+
+    suspend fun getNumberOfWins(): Int {
+        return matchResultsDao.getNumberOfWins(MatchOutcome.WIN)
+    }
+
+    suspend fun getNumberOfDraws(): Int {
+        return matchResultsDao.getNumberOfWins(MatchOutcome.DRAW)
+    }
+
+    suspend fun getNumberOLosses(): Int {
+        return matchResultsDao.getNumberOfWins(MatchOutcome.LOSS)
     }
 }

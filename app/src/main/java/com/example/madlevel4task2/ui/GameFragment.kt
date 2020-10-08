@@ -41,6 +41,9 @@ class GameFragment : Fragment() {
 
         matchResultsRepository = MatchResultsRepository(requireContext())
 
+        // Show statistics of previous played games.
+        updateScreenStatistics()
+
         // Event handlers for selecting images
         imgRock.setOnClickListener {
             playMatch(ROCK)
@@ -176,6 +179,28 @@ class GameFragment : Fragment() {
             DRAW -> {
                 tvResult.text = getString(R.string.game_draw)
             }
+        }
+
+        // Show statistics of this game and previous played games.
+        updateScreenStatistics()
+    }
+
+    /**
+     * Display information about the amount of games won, lost or ended in a draw.
+     */
+    private fun updateScreenStatistics() {
+        var wins = 0
+        var draws = 0
+        var losses = 0
+
+        mainScope.launch {
+            withContext(Dispatchers.IO) {
+                wins = matchResultsRepository.getNumberOfWins()
+                draws = matchResultsRepository.getNumberOfDraws()
+                losses = matchResultsRepository.getNumberOLosses()
+            }
+
+            tvDetailedStatistics.text = getString(R.string.title_statistics_numbers, wins, draws, losses)
         }
     }
 }
