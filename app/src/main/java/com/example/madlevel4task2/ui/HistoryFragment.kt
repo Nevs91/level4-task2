@@ -10,10 +10,17 @@ import com.example.madlevel4task2.R
  */
 class HistoryFragment : Fragment() {
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
+
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_history, container, false)
     }
@@ -22,15 +29,26 @@ class HistoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
+    /**
+     * Set the menu with specific menu options for this fragment
+     */
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_history_fragment, menu);
-        super.onCreateOptionsMenu(menu, inflater);
+        menu.clear()
+        inflater.inflate(R.menu.menu_history_fragment, menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
+    /**
+     * Handle clicks on icons in the title bar
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            android.R.id.home -> {
+                activity?.onBackPressed()
+                true
+            }
             R.id.action_clear_history -> {
-                clearResultsHistory()
+                //clearResultsHistory()
                 true
             }
             else -> super.onOptionsItemSelected(item)
