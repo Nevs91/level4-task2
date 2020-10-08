@@ -91,7 +91,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvDetailedStatistics" />
 
     <ImageButton
-        android:id="@+id/imgBtn_rock"
+        android:id="@+id/imgRock"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="16dp"
@@ -100,12 +100,12 @@
         android:backgroundTintMode="add"
         android:contentDescription="@string/rock"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imgBtn_paper"
+        app:layout_constraintEnd_toStartOf="@+id/imgPaper"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/imgBtn_paper"
+        android:id="@+id/imgPaper"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="16dp"
@@ -114,12 +114,12 @@
         android:backgroundTintMode="add"
         android:contentDescription="@string/paper"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imgBtn_scissors"
+        app:layout_constraintEnd_toStartOf="@+id/imgScissors"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imgBtn_rock" />
+        app:layout_constraintStart_toEndOf="@+id/imgRock" />
 
     <ImageButton
-        android:id="@+id/imgBtn_scissors"
+        android:id="@+id/imgScissors"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="16dp"
@@ -130,7 +130,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imgBtn_paper" />
+        app:layout_constraintStart_toEndOf="@+id/imgPaper" />
 
     <TextView
         android:id="@+id/textView4"
@@ -141,7 +141,7 @@
         android:text="@string/game_versus"
         android:textSize="30sp"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/imgBtn_paper"
+        app:layout_constraintBottom_toTopOf="@+id/imgPaper"
         app:layout_constraintEnd_toStartOf="@+id/imgResultPlayer"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toEndOf="@+id/imgResultComputer"
