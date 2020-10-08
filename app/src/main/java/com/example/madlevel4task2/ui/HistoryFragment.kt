@@ -4,11 +4,24 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import com.example.madlevel4task2.R
+import com.example.madlevel4task2.adapters.ResultsAdapter
+import com.example.madlevel4task2.entities.MatchResult
+import com.example.madlevel4task2.repositories.MatchResultsRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
 class HistoryFragment : Fragment() {
+
+    private lateinit var matchResultsRepository: MatchResultsRepository
+    private val mainScope = CoroutineScope(Dispatchers.Main)
+
+    private val matchResults = arrayListOf<MatchResult>()
+    private val resultsAdapter = ResultsAdapter(matchResults)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,5 +70,17 @@ class HistoryFragment : Fragment() {
 
     private fun clearResultsHistory() {
         TODO("Not yet implemented")
+    }
+
+    private fun getGameResultsFromDatabase() {
+        mainScope.launch {
+            val matchResults = withContext(Dispatchers.IO) {
+                matchResultsRepository.getAllMatchResults()
+            }
+
+            this@HistoryFragment.matchResults.clear()
+            this@HistoryFragment.matchResults.addAll(matchResults)
+            this@HistoryFragment.resultsAdapter.notifyDataSetChanged()
+        }
     }
 }
