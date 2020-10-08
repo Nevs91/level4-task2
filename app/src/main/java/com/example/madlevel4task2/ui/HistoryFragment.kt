@@ -3,10 +3,14 @@ package com.example.madlevel4task2.ui
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.madlevel4task2.R
 import com.example.madlevel4task2.adapters.ResultsAdapter
 import com.example.madlevel4task2.entities.MatchResult
 import com.example.madlevel4task2.repositories.MatchResultsRepository
+import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -32,14 +36,18 @@ class HistoryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_history, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        matchResultsRepository = MatchResultsRepository(requireContext())
+
+        getGameResultsFromDatabase()
+
+        initRv()
     }
 
     /**
@@ -61,17 +69,38 @@ class HistoryFragment : Fragment() {
                 true
             }
             R.id.action_clear_history -> {
-                //clearResultsHistory()
+                clearResultsHistory()
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-    private fun clearResultsHistory() {
-        TODO("Not yet implemented")
+    /**
+     * Initialize the recycler view with a linear layout manager, adapter
+     */
+    private fun initRv() {
+        rvMatchResults.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        rvMatchResults.adapter = resultsAdapter
+        rvMatchResults.setHasFixedSize(true)
+        rvMatchResults.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
     }
 
+    /**
+     * Remove all stored match results in the database and re-populate the recyclerView
+     */
+    private fun clearResultsHistory() {
+        mainScope.launch {
+            withContext(Dispatchers.IO) {
+                matchResultsRepository.deleteAllMatchResults()
+            }
+            getGameResultsFromDatabase()
+        }
+    }
+
+    /**
+     * Load all match results from the database
+     */
     private fun getGameResultsFromDatabase() {
         mainScope.launch {
             val matchResults = withContext(Dispatchers.IO) {
