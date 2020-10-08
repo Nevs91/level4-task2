@@ -17,4 +17,6 @@
     <string name="player_computer">Computer</string>
     <string name="player_you">You</string>
     <string name="game_versus">V.S.</string>
+    <string name="title_statistics">Your all time statistics</string>
+    <string name="title_statistics_numbers">Win: %d Draw: %d Lose: %d</string>
 </resources>
