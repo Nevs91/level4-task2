@@ -1,4 +1,4 @@
-package com.example.madlevel4task2.entities
+package com.example.madlevel4task2.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

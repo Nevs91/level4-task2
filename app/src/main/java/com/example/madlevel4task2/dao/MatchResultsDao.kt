@@ -1,11 +1,11 @@
-package com.example.madlevel4task2.interfaces
+package com.example.madlevel4task2.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.madlevel4task2.entities.MatchOutcome
-import com.example.madlevel4task2.entities.MatchResult
+import com.example.madlevel4task2.models.MatchOutcome
+import com.example.madlevel4task2.models.MatchResult
 
 @Dao
 interface MatchResultsDao {

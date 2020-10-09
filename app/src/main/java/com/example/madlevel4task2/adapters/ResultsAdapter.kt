@@ -5,9 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.madlevel4task2.R
-import com.example.madlevel4task2.entities.MatchOption
-import com.example.madlevel4task2.entities.MatchOutcome
-import com.example.madlevel4task2.entities.MatchResult
+import com.example.madlevel4task2.models.MatchOption
+import com.example.madlevel4task2.models.MatchOutcome
+import com.example.madlevel4task2.models.MatchResult
 import kotlinx.android.synthetic.main.item_result.view.*
 
 class ResultsAdapter(private val matchResult: List<MatchResult>) : RecyclerView.Adapter<ResultsAdapter.ViewHolder>(){

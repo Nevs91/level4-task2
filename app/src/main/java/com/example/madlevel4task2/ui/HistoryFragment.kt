@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.madlevel4task2.R
 import com.example.madlevel4task2.adapters.ResultsAdapter
-import com.example.madlevel4task2.entities.MatchResult
+import com.example.madlevel4task2.models.MatchResult
 import com.example.madlevel4task2.repositories.MatchResultsRepository
 import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.coroutines.CoroutineScope

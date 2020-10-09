@@ -1,8 +1,8 @@
 package com.example.madlevel4task2.converters
 
 import androidx.room.TypeConverter
-import com.example.madlevel4task2.entities.MatchOption
-import com.example.madlevel4task2.entities.MatchOutcome
+import com.example.madlevel4task2.models.MatchOption
+import com.example.madlevel4task2.models.MatchOutcome
 import java.util.*
 
 class Converters {

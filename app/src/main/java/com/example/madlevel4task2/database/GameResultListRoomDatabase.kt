@@ -6,8 +6,8 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.madlevel4task2.converters.Converters
-import com.example.madlevel4task2.entities.MatchResult
-import com.example.madlevel4task2.interfaces.MatchResultsDao
+import com.example.madlevel4task2.models.MatchResult
+import com.example.madlevel4task2.dao.MatchResultsDao
 
 @Database(entities = [MatchResult::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)

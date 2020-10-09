@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.madlevel4task2.R
-import com.example.madlevel4task2.entities.MatchOption
-import com.example.madlevel4task2.entities.MatchOption.*
-import com.example.madlevel4task2.entities.MatchOutcome
-import com.example.madlevel4task2.entities.MatchOutcome.*
-import com.example.madlevel4task2.entities.MatchResult
+import com.example.madlevel4task2.models.MatchOption
+import com.example.madlevel4task2.models.MatchOption.*
+import com.example.madlevel4task2.models.MatchOutcome
+import com.example.madlevel4task2.models.MatchOutcome.*
+import com.example.madlevel4task2.models.MatchResult
 import com.example.madlevel4task2.repositories.MatchResultsRepository
 import kotlinx.android.synthetic.main.fragment_game.*
 import kotlinx.coroutines.CoroutineScope
@@ -80,43 +80,28 @@ class GameFragment : Fragment() {
         val outcome: MatchOutcome
 
         when(playerChoice) {
+            computerChoice -> {
+                outcome = DRAW
+            }
             ROCK -> {
-                outcome = when(computerChoice) {
-                    ROCK -> {
-                        DRAW
-                    }
-                    PAPER -> {
-                        LOSS
-                    }
-                    SCISSORS -> {
-                        WIN
-                    }
+                outcome = if (computerChoice == PAPER) {
+                    LOSS
+                } else {
+                    WIN
                 }
             }
             PAPER -> {
-                outcome = when(computerChoice) {
-                    ROCK -> {
-                        WIN
-                    }
-                    PAPER -> {
-                        DRAW
-                    }
-                    SCISSORS -> {
-                        LOSS
-                    }
+                outcome = if (computerChoice == SCISSORS) {
+                    LOSS
+                } else {
+                    WIN
                 }
             }
             SCISSORS -> {
-                outcome = when(computerChoice) {
-                    ROCK -> {
-                        LOSS
-                    }
-                    PAPER -> {
-                        WIN
-                    }
-                    SCISSORS -> {
-                        DRAW
-                    }
+                outcome = if (computerChoice == ROCK) {
+                    LOSS
+                } else {
+                    WIN
                 }
             }
         }

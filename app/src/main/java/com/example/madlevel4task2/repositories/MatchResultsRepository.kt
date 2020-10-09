@@ -2,9 +2,9 @@ package com.example.madlevel4task2.repositories
 
 import android.content.Context
 import com.example.madlevel4task2.database.GameResultListRoomDatabase
-import com.example.madlevel4task2.entities.MatchOutcome
-import com.example.madlevel4task2.entities.MatchResult
-import com.example.madlevel4task2.interfaces.MatchResultsDao
+import com.example.madlevel4task2.models.MatchOutcome
+import com.example.madlevel4task2.models.MatchResult
+import com.example.madlevel4task2.dao.MatchResultsDao
 
 class MatchResultsRepository(context: Context) {
 
