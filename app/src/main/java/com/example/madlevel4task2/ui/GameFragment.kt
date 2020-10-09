@@ -77,31 +77,25 @@ class GameFragment : Fragment() {
      */
     private fun getMatchResult(playerChoice: MatchOption, computerChoice: MatchOption): MatchResult {
         val now = Date()
-        val outcome: MatchOutcome
+        var outcome: MatchOutcome = WIN
 
         when(playerChoice) {
             computerChoice -> {
                 outcome = DRAW
             }
             ROCK -> {
-                outcome = if (computerChoice == PAPER) {
-                    LOSS
-                } else {
-                    WIN
+                if (computerChoice == PAPER) {
+                    outcome = LOSS
                 }
             }
             PAPER -> {
-                outcome = if (computerChoice == SCISSORS) {
-                    LOSS
-                } else {
-                    WIN
+                if (computerChoice == SCISSORS) {
+                    outcome = LOSS
                 }
             }
             SCISSORS -> {
-                outcome = if (computerChoice == ROCK) {
-                    LOSS
-                } else {
-                    WIN
+                if (computerChoice == ROCK) {
+                    outcome = LOSS
                 }
             }
         }
